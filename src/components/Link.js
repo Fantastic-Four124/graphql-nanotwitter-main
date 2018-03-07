@@ -16,13 +16,12 @@ class Link extends Component {
         this.props.updateStoreAfterVote(store, vote, linkId)
       },
     })
-    console.log("VOTED!!!!!")
   }
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     return (
-      <div className="flex mt2 items-start">
+      <div className="flex mt2 items-start tweet">
         <div className="flex items-center">
           <span className="gray">{this.props.index + 1}.</span>
           {authToken && (

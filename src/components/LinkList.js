@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from './Link'
+import Profile from './Profile'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -26,10 +27,15 @@ class LinkList extends Component {
     const linksToRender = this.props.feedQuery.feed.links
 
     return (
-      <div>
-        {linksToRender.map((link, index) => (
-          <Link key={link.id} updateStoreAfterVote={this._updateCacheAfterVote} index={index} link={link}/>
-        ))}
+      <div className="flex justify-around">
+        <div className="tweet-list">
+          {linksToRender.map((link, index) => (
+            <Link key={link.id} updateStoreAfterVote={this._updateCacheAfterVote} index={index} link={link}/>
+          ))}
+        </div>
+        <div className="profile-card">
+          <Profile />
+        </div>
       </div>
     )
   }
